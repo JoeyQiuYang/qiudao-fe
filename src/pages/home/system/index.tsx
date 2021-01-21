@@ -1,11 +1,11 @@
 import { Menu } from 'antd';
 import { Helmet, IGetInitialProps } from 'umi';
-import {useCallback, useEffect} from "react";
+import {ReactElement, useCallback} from "react";
 import { useDispatch, useSelector } from 'umi'
 import { getNavs } from '@/service/header'
-import {HeaderModelState, Nav, NavTypes} from "@/types/headerType";
+import {HeaderModelState, NavTypes} from "@/types/headerType";
 
-export default function IndexPage({header}:{header: HeaderModelState}) {
+export default function IndexPage({header,children}:{header: HeaderModelState, children: ReactElement}) {
   const dispatch = useDispatch();
 
   const headerData = useSelector<any,HeaderModelState>((state)=>state.header);
@@ -23,25 +23,10 @@ export default function IndexPage({header}:{header: HeaderModelState}) {
     <div>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>求道｜首页</title>
+        <title>求道｜系统</title>
       </Helmet>
-      <div
-        style={{
-          maxWidth: '700px',
-          margin: '0 auto'
-        }}
-      >
-        <Menu
-          mode="horizontal"
-          selectedKeys={[headerData.activeKey]}
-          onClick={changeNavs}
-        >
-          {
-            header.navs.map(({title,key,link})=>{
-              return <Menu.Item key={key}>{title}</Menu.Item>
-            })
-          }
-        </Menu>
+      <div>
+        system
       </div>
     </div>
   );
