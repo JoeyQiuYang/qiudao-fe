@@ -1,15 +1,14 @@
 import { Menu } from 'antd';
-import { Helmet } from 'umi';
+import { Helmet, IGetInitialProps } from 'umi';
 import {useCallback, useEffect} from "react";
 import { useDispatch, useSelector } from 'umi'
-import {HeaderModelState} from "@/types/headerType";
+import { getNavs } from '@/service/header'
+import {HeaderModelState, Nav, NavTypes} from "@/types/headerType";
 
-
-export default function IndexPage() {
+export default function IndexPage({header}:{header: HeaderModelState}) {
   const dispatch = useDispatch();
 
   const headerData = useSelector<any,HeaderModelState>((state)=>state.header);
-
   const changeNavs = useCallback((v)=>{
     dispatch({
       type: 'header/setState',
@@ -19,12 +18,6 @@ export default function IndexPage() {
       }
     })
   },[])
-
-  useEffect(()=>{
-    dispatch({
-      type: 'header/updateActiveKey'
-    })
-  },[dispatch])
 
   return (
     <div>
@@ -44,7 +37,7 @@ export default function IndexPage() {
           onClick={changeNavs}
         >
           {
-            headerData.navs.map(({title,key,link})=>{
+            header.navs.map(({title,key,link})=>{
               return <Menu.Item key={key}>{title}</Menu.Item>
             })
           }
@@ -53,3 +46,13 @@ export default function IndexPage() {
     </div>
   );
 }
+
+IndexPage.getInitialProps = (async (ctx) => {
+  const { data } = await getNavs();
+  return {
+    header: {
+      navs: data,
+      activeKey: NavTypes.HOME
+    }
+  }
+}) as IGetInitialProps;

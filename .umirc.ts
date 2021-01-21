@@ -6,7 +6,9 @@ export default defineConfig({
     type: 'none',
   },
   fastRefresh: {},
-  ssr: {},
+  ssr: {
+    mode: 'stream'
+  },
   antd: {},
   dva: {
     immer: true,
