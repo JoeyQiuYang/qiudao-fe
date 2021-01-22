@@ -20,30 +20,48 @@ export default function IndexPage({header,children}:{header: HeaderModelState, c
   },[])
 
   return (
-    <div>
+    <div
+      style={{
+        background: '#F4F5F5'
+      }}
+    >
       <Helmet>
         <meta charSet="utf-8" />
         <title>求道｜首页</title>
       </Helmet>
       <div
         style={{
-          maxWidth: '700px',
-          margin: '0 auto'
+          background: '#fff'
         }}
       >
-        <Menu
-          mode="horizontal"
-          selectedKeys={[headerData.activeKey]}
-          onClick={changeNavs}
+        <div
+          style={{
+            maxWidth: '700px',
+            margin: '0 auto'
+          }}
         >
-          {
-            header.navs.map(({title,key,link})=>{
-              return <Menu.Item key={key}>
-                <Link to={link}>{title}</Link>
-              </Menu.Item>
-            })
-          }
-        </Menu>
+          <Menu
+            mode="horizontal"
+            selectedKeys={[headerData.activeKey]}
+            onClick={changeNavs}
+          >
+            {
+              header.navs.map(({title,key,link})=>{
+                return <Menu.Item key={key}>
+                  <Link to={link}>{title}</Link>
+                </Menu.Item>
+              })
+            }
+          </Menu>
+        </div>
+      </div>
+      <div
+        style={{
+          maxWidth: '700px',
+          margin: '0 auto',
+          minHeight: '800px'
+        }}
+      >
         {children}
       </div>
     </div>
