@@ -1,21 +1,18 @@
 import { Menu } from 'antd';
 import { Helmet, IGetInitialProps } from 'umi';
-import {ReactElement, useCallback} from "react";
+import {ReactElement, useCallback, useEffect} from "react";
 import { useDispatch, useSelector } from 'umi'
 import { getNavs } from '@/service/header'
-import {HeaderModelState, NavTypes} from "@/types/headerType";
+import {NewsModelState} from "@/types/newType";
 
-export default function IndexPage({header,children}:{header: HeaderModelState, children: ReactElement}) {
+export default function IndexPage() {
   const dispatch = useDispatch();
 
-  const headerData = useSelector<any,HeaderModelState>((state)=>state.header);
-  const changeNavs = useCallback((v)=>{
+  const newsListData = useSelector<any,NewsModelState>((state)=>state.news);
+
+  useEffect(()=>{
     dispatch({
-      type: 'header/setState',
-      payload: {
-        value: v.key,
-        props: 'activeKey'
-      }
+      type: 'news/getList',
     })
   },[])
 
@@ -26,18 +23,8 @@ export default function IndexPage({header,children}:{header: HeaderModelState, c
         <title>求道｜首页</title>
       </Helmet>
       <div>
-        new
+        {JSON.stringify(newsListData)}
       </div>
     </div>
   );
 }
-
-IndexPage.getInitialProps = (async (ctx) => {
-  const { data } = await getNavs();
-  return {
-    header: {
-      navs: data,
-      activeKey: NavTypes.HOME
-    }
-  }
-}) as IGetInitialProps;

@@ -20,7 +20,6 @@ const HeaderModel: HeaderModelType = {
     },
   },
   reducers: {
-    // 启用 immer 之后
     setState(state, {payload}) {
       const {props,value} = payload;
       state[props] = value;
