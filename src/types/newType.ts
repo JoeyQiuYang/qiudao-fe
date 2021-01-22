@@ -9,10 +9,10 @@ export enum NewTypes{
 
 export interface News{
   title: string;
-  key: string;
   id: string;
-  link: string;
+  description: string;
   type: NewTypes[];
+  createTime: number
 }
 export interface NewsModelState {
   list: News[];

@@ -2,10 +2,16 @@ import {News, NewTypes} from '../src/types/newType'
 
 const list: News[] = [{
   title: 'title',
-  key: '22',
-  id: '22',
-  link: 'link',
-  type: [NewTypes.JAVASCRIPT]
+  id: '1',
+  description: 'sdsd',
+  type: [NewTypes.JAVASCRIPT,NewTypes.NODEJS],
+  createTime: new Date().getTime()
+},{
+  title: 'title',
+  id: '2',
+  description: 'sdsd',
+  type: [NewTypes.JAVASCRIPT,NewTypes.NODEJS],
+  createTime: new Date().getTime()
 }]
 
 export default {
