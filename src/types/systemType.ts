@@ -1,25 +1,25 @@
 import {Effect, ImmerReducer} from "@@/plugin-dva/connect";
 import {TechnologyType} from "@/types/enums";
 
-export interface News{
+export interface SysType{
   title: string;
   id: string;
   description: string;
   type: TechnologyType[];
   createTime: number
 }
-export interface NewsModelState {
-  list: News[];
+export interface SysModelState {
+  list: SysType[];
   [x: string]: any;
 }
-export interface NewsModelType {
-  namespace: 'news';
-  state: NewsModelState;
+export interface SysModelType {
+  namespace: 'sys';
+  state: SysModelState;
   effects: {
     getList: Effect;
   };
   reducers: {
-    setState: ImmerReducer<NewsModelState>;
+    setState: ImmerReducer<SysModelState>;
   };
   subscriptions: {
 
