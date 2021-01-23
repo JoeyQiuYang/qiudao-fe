@@ -15,7 +15,7 @@ export default function IndexPage() {
 
   useEffect(()=>{
     dispatch({
-      type: 'news/getList',
+      type: 'sys/getList',
     })
   },[])
 

@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'umi'
 import { getNavs } from '@/service/header'
 import {HeaderModelState, NavTypes} from "@/types/headerType";
 
-export default function IndexPage({header,children}:{header: HeaderModelState, children: ReactElement}) {
+export default function IndexPage({children}:{children: ReactElement}) {
   const dispatch = useDispatch();
 
   const headerData = useSelector<any,HeaderModelState>((state)=>state.header);
+
   const changeNavs = useCallback((v)=>{
     dispatch({
       type: 'header/setState',
@@ -46,7 +47,7 @@ export default function IndexPage({header,children}:{header: HeaderModelState, c
             onClick={changeNavs}
           >
             {
-              header.navs.map(({title,key,link})=>{
+              headerData.navs.map(({title,key,link})=>{
                 return <Menu.Item key={key}>
                   <Link to={link}>{title}</Link>
                 </Menu.Item>
@@ -69,11 +70,13 @@ export default function IndexPage({header,children}:{header: HeaderModelState, c
 }
 
 IndexPage.getInitialProps = (async (ctx) => {
-  const { data } = await getNavs();
-  return {
-    header: {
-      navs: data,
-      activeKey: NavTypes.HOME
+  if (ctx.isServer) {
+    const { data } = await getNavs();
+    return {
+      header: {
+        navs: data,
+        activeKey: NavTypes.HOME
+      }
     }
   }
 }) as IGetInitialProps;
