@@ -3,14 +3,15 @@ import {useCallback, useEffect} from "react";
 import { useDispatch, useSelector } from 'umi'
 import moment from "moment";
 import {NewsModelState} from "@/types/newType";
+import {history} from "@@/core/history";
 
 export default function IndexPage() {
   const dispatch = useDispatch();
 
   const newsListData = useSelector<any,NewsModelState>((state)=>state.news);
 
-  const goToDetail = useCallback<(link: string)=>void>((link)=>{
-
+  const goToDetail = useCallback<(id: string)=>void>((id)=>{
+    history.push(`/home/new/${id}`)
   },[])
 
   useEffect(()=>{

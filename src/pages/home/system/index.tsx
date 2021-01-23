@@ -1,6 +1,6 @@
 import { Helmet } from 'umi';
 import {useCallback, useEffect} from "react";
-import { useDispatch, useSelector } from 'umi'
+import { useDispatch, useSelector, history } from 'umi'
 import moment from "moment";
 import {NewsModelState} from "@/types/newType";
 
@@ -9,8 +9,8 @@ export default function IndexPage() {
 
   const newsListData = useSelector<any,NewsModelState>((state)=>state.news);
 
-  const goToDetail = useCallback<(link: string)=>void>((link)=>{
-
+  const goToDetail = useCallback<(id: string)=>void>((id)=>{
+    history.push(`/home/system/${id}`)
   },[])
 
   useEffect(()=>{

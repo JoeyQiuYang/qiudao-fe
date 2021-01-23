@@ -1,14 +1,17 @@
 import { Menu } from 'antd';
 import { Helmet, IGetInitialProps, Link } from 'umi';
-import {ReactElement, useCallback} from "react";
+import {ReactElement, useCallback, useState} from "react";
 import { useDispatch, useSelector } from 'umi'
 import { getNavs } from '@/service/header'
 import {HeaderModelState, NavTypes} from "@/types/headerType";
 
-export default function IndexPage({children}:{children: ReactElement}) {
+export default function IndexPage({header,children}:{header: HeaderModelState, children: ReactElement}) {
   const dispatch = useDispatch();
 
   const headerData = useSelector<any,HeaderModelState>((state)=>state.header);
+
+  const h = header ? header:headerData;
+
 
   const changeNavs = useCallback((v)=>{
     dispatch({
@@ -47,7 +50,7 @@ export default function IndexPage({children}:{children: ReactElement}) {
             onClick={changeNavs}
           >
             {
-              headerData.navs.map(({title,key,link})=>{
+              h.navs.map(({title,key,link})=>{
                 return <Menu.Item key={key}>
                   <Link to={link}>{title}</Link>
                 </Menu.Item>
