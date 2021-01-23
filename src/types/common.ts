@@ -5,3 +5,7 @@ export enum TechnologyType {
   REACT='reactjs'
 }
 
+export interface MocType{
+  type: string;
+  title: string
+}

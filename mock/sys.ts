@@ -1,5 +1,5 @@
 import {News} from '../src/types/newType'
-import {TechnologyType} from "../src/types/enums";
+import {TechnologyType} from "../src/types/common";
 
 const list: News[] = [{
   title: 'title',
@@ -17,5 +17,5 @@ const list: News[] = [{
 
 export default {
   // 支持值为 Object 和 Array
-  'GET /api/newsList': { data: list }
+  'GET /api/sysList': { data: list }
 }
