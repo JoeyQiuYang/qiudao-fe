@@ -44,19 +44,36 @@ export default function IndexPage({header,children}:{header: HeaderModelState, c
             margin: '0 auto'
           }}
         >
-          <Menu
-            mode="horizontal"
-            selectedKeys={[headerData.activeKey]}
-            onClick={changeNavs}
+
+          <div
+            style={{
+              paddingRight: '100px',
+              position: 'relative'
+            }}
           >
-            {
-              h.navs.map(({title,key,link})=>{
-                return <Menu.Item key={key}>
-                  <Link to={link}>{title}</Link>
-                </Menu.Item>
-              })
-            }
-          </Menu>
+            <Menu
+              mode="horizontal"
+              selectedKeys={[headerData.activeKey]}
+              onClick={changeNavs}
+            >
+              {
+                h.navs.map(({title,key,link})=>{
+                  return <Menu.Item key={key}>
+                    <Link to={link}>{title}</Link>
+                  </Menu.Item>
+                })
+              }
+            </Menu>
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                right: 0
+              }}
+            >
+              登录
+            </div>
+          </div>
         </div>
       </div>
       <div

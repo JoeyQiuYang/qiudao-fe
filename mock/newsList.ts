@@ -1,5 +1,5 @@
 import {News,NewDetail} from '../src/types/newType'
-import {TechnologyType} from "@/types/common";
+import {TechnologyType} from "../src/types/common";
 // @ts-ignore
 import CryptoJS from 'crypto-js'
 

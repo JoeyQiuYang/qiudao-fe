@@ -9,5 +9,10 @@ export default ({mkSource}: PropsType)=>{
   const md = new MarkdownIt();
   const result = md.render(mkSource);
 
-  return <div dangerouslySetInnerHTML={{__html: result}} />
+  return <div
+    style={{
+      background: 'yellow'
+    }}
+    dangerouslySetInnerHTML={{__html: result}}
+  />
 }

@@ -1,5 +1,5 @@
 import {News} from '../src/types/newType'
-import {TechnologyType} from "@/types/common";
+import {TechnologyType} from "../src/types/common";
 
 const list: News[] = [{
   title: 'title',

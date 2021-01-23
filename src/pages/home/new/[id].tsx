@@ -28,9 +28,6 @@ export default function IndexPage() {
           paddingTop: '10px'
         }}
       >
-        <div>
-
-        </div>
         <MkView mkSource={newsListData.detail.md} />
       </div>
     </div>
