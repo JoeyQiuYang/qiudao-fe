@@ -21,9 +21,11 @@
   },
   "dependencies": {
     "@ant-design/pro-layout": "^6.5.0",
+    "@types/markdown-it": "^12.0.1",
     "@umijs/preset-react": "1.x",
     "axios": "^0.21.1",
     "crypto-js": "^4.0.0",
+    "markdown-it": "^12.0.4",
     "moment": "^2.29.1",
     "umi": "^3.3.7"
   },

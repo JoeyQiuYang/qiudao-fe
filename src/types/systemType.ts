@@ -1,5 +1,5 @@
 import {Effect, ImmerReducer} from "@@/plugin-dva/connect";
-import {TechnologyType} from "@/types/enums";
+import {TechnologyType} from "@/types/common";
 
 export interface SysType{
   title: string;

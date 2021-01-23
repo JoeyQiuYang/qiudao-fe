@@ -1,5 +1,5 @@
 import {News,NewDetail} from '../src/types/newType'
-import {TechnologyType} from "../src/types/enums";
+import {TechnologyType} from "@/types/common";
 // @ts-ignore
 import CryptoJS from 'crypto-js'
 

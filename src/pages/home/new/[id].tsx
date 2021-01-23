@@ -3,6 +3,7 @@ import {useCallback, useEffect} from "react";
 import { useDispatch, useSelector, useParams } from 'umi'
 import moment from "moment";
 import {NewsModelState} from "@/types/newType";
+import MkView from '@/components/markdown'
 
 export default function IndexPage() {
   const dispatch = useDispatch();
@@ -27,7 +28,10 @@ export default function IndexPage() {
           paddingTop: '10px'
         }}
       >
-        {JSON.stringify(newsListData.detail)}
+        <div>
+
+        </div>
+        <MkView mkSource={newsListData.detail.md} />
       </div>
     </div>
   );

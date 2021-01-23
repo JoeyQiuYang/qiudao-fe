@@ -1,5 +1,5 @@
 import {Effect, ImmerReducer} from "@@/plugin-dva/connect";
-import {TechnologyType} from "@/types/enums";
+import {MocType, TechnologyType} from "@/types/common";
 
 export interface News{
   title: string;
@@ -10,9 +10,10 @@ export interface News{
 }
 
 export interface NewDetail{
-  id: string,
-  md: string,
-  sc: string
+  id: string;
+  md: string;
+  sc: string;
+  moc: MocType[];
 }
 export interface NewsModelState {
   list: News[];

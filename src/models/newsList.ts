@@ -11,7 +11,8 @@ const NewsModel: NewsModelType = {
     detail: {
       id: '',
       md: '',
-      sc: ''
+      sc: '',
+      moc: []
     }
   },
   effects: {
