@@ -31,13 +31,15 @@ export default function IndexPage() {
         }}
       >
         {
-          newsListData.list.map(({
-                                   description,
-                                   title,
-                                   id,
-                                   createTime,
-                                   type
-                                 })=>{
+          newsListData
+            .list
+            .map(({
+               description,
+               title,
+               id,
+               createTime,
+               type
+             })=>{
             return (
               <div
                 style={{
