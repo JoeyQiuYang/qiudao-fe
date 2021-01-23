@@ -8,8 +8,15 @@ export interface News{
   type: TechnologyType[];
   createTime: number
 }
+
+export interface NewDetail{
+  id: string,
+  md: string,
+  sc: string
+}
 export interface NewsModelState {
   list: News[];
+  detail: NewDetail
   [x: string]: any;
 }
 export interface NewsModelType {
@@ -17,6 +24,7 @@ export interface NewsModelType {
   state: NewsModelState;
   effects: {
     getList: Effect;
+    getDetail: Effect;
   };
   reducers: {
     setState: ImmerReducer<NewsModelState>;

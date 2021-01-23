@@ -17,5 +17,5 @@ const list: News[] = [{
 
 export default {
   // 支持值为 Object 和 Array
-  'GET /api/newsList': { data: list }
+  'GET /api/sysList': { data: list }
 }
